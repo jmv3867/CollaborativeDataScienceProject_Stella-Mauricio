@@ -136,24 +136,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="the-problem" class="level4">
 <h4 class="anchored" data-anchor-id="the-problem">The problem</h4>
-<p>Introduction</p>
+<p>Find innovative ways to analyze specific cases based on small and noisy datasets. Archaeological research reports several observations from diverse data that most of times does not show regular patterns or relations between them. In this case, the exploration of quantitative datasets helps us to establish correlations between different variables in order to foster interpretations on ancient human behavior and change.</p>
 </section>
 <section id="chosen-methods" class="level4">
 <h4 class="anchored" data-anchor-id="chosen-methods">Chosen methods</h4>
 <p>what is this method?</p>
-<section id="bayesian-isotopic-niche-modeling-siber-with-siber" class="level5" data-siber="">
-<h5 data-siber="" class="anchored" data-anchor-id="bayesian-isotopic-niche-modeling-siber-with-siber">Bayesian isotopic niche modeling (SIBER) with {SIBER}</h5>
+<section id="bayesian-isotopic-niche-modeling-siber-with-siber-and-kmeans-hclust" class="level5" data-siber="">
+<h5 data-siber="" class="anchored" data-anchor-id="bayesian-isotopic-niche-modeling-siber-with-siber-and-kmeans-hclust">Bayesian isotopic niche modeling (SIBER) with {SIBER} and Kmeans Hclust</h5>
 <p>This module introduces Bayesian isotopic niche modeling using SIBER to compare dietary niches across species and through time, demonstrating how ecologists and archaeologists can make robust inferences from small, noisy datasets.</p>
-<p>When should be used</p>
-<p>How can Bayesian methods be used to estimate and compare dietary niches when sample sizes are small and uncertainty is high?</p>
-<p>Why does it matter</p>
+</section>
+<section id="when-should-be-used" class="level5">
+<h5 class="anchored" data-anchor-id="when-should-be-used">When should be used</h5>
+<p>SIBER is the appropriate tool when you need to <strong>characterise and compare dietary or ecological niches</strong> from stable isotope data (δ¹³C and δ¹⁵N) across multiple groups simultaneously. It is especially well suited for archaeological and ecological studies where sample sizes are small and unequal, uncertainty needs to be explicitly quantified, and classical approaches like convex hulls or t-tests would either be biased or unable to answer the research question.</p>
+<p>The core innovation of SIBER is replacing single-point niche estimates with <strong>full posterior distributions</strong> over all plausible ellipse sizes and shapes given the observed data. It does this through three mechanisms:</p>
+<p><strong>Small-sample correction:</strong> The inverse-Wishart prior on the covariance matrix regularises extreme estimates when n is small, producing stable and interpretable ellipses even with as few as 9 observations — something classical convex hulls and maximum likelihood ellipses cannot do reliably.</p>
+<p><strong>Uncertainty quantification:</strong> Rather than asking “is group A’s niche larger than group B’s?” as a binary question, SIBER answers “in what fraction of posterior draws is A’s ellipse area larger than B’s?” — a direct probability statement that honestly reflects how much the data actually support the comparison.</p>
+<p><strong>Propagation of uncertainty:</strong> All downstream quantities — ellipse overlap, Layman community metrics, centroid distances — inherit uncertainty from the ellipse parameters, meaning conclusions about niche differences are automatically hedged by the precision of the underlying estimates.</p>
+</section>
+<section id="why-does-it-matter" class="level5">
+<h5 class="anchored" data-anchor-id="why-does-it-matter">Why does it matter</h5>
+<p>At the <strong>methodological level</strong>, SIBER transformed isotopic ecology from univariate mean comparisons to two-dimensional niche characterisation, and the Bayesian framework made that characterisation honest about its own limitations when data are sparse.</p>
+<p>At the <strong>practical level</strong>, implementing SIBER in a fully reproducible R script within a Quarto vignette means the analysis can be independently verified, extended with new data, and adapted to future excavations across the southern Amazon without redesigning the workflow from scratch.</p>
+<p>In short, SIBER matters because it is the only method that can simultaneously characterise dietary niches, compare them across groups with unequal and small sample sizes, and communicate the uncertainty in those comparisons in a statistically principled way — all of which are non-negotiable requirements for credible dietary reconstruction in archaeology and ecology.</p>
 </section>
 </section>
-<section id="the-data" class="level4">
-<h4 class="anchored" data-anchor-id="the-data">The data</h4>
-<p>Where it comes from</p>
-<p>What variables matter</p>
-<p>Analytical workflow: step by step, concrete interpretation</p>
+<section id="analytical-workflow-step-by-step-concrete-interpretation" class="level4">
+<h4 class="anchored" data-anchor-id="analytical-workflow-step-by-step-concrete-interpretation">Analytical workflow: step by step, concrete interpretation</h4>
 <section id="install-and-load-required-packages" class="level5">
 <h5 class="anchored" data-anchor-id="install-and-load-required-packages">Install and load required packages</h5>
 <div class="cell">
@@ -581,8 +589,8 @@ Posterior SEA_B summary (‰²):</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">round</span>(<span class="fu">t</span>(SEA_B_sites_summary), <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>              mean median lower.2.5% upper.97.5%
-Mendoza     22.873 22.715     17.950      28.853
-Salvatierra 29.135 28.557     20.143      41.759</code></pre>
+Mendoza     22.960 22.778     18.049      29.215
+Salvatierra 28.762 28.081     19.851      40.984</code></pre>
 </div>
 </div>
 <p>Plot posterior SEA_B distributions</p>
@@ -620,7 +628,7 @@ Salvatierra 29.135 28.557     20.143      41.759</code></pre>
 <span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-P(SEA_B Salvatierra &gt; SEA_B Mendoza) = 0.845</code></pre>
+P(SEA_B Salvatierra &gt; SEA_B Mendoza) = 0.836</code></pre>
 </div>
 </div>
 </section>
@@ -760,10 +768,10 @@ Posterior SEA_B summary by phase (‰²):</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">round</span>(<span class="fu">t</span>(SEA_B_phase_summary), <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         mean median lower.2.5% upper.97.5%
-Phase_2 9.653  8.995      5.006      18.028
-Phase_3 5.996  5.813      4.042       8.912
-Phase_4 6.743  6.587      4.627       9.927
-Phase_5 9.374  8.394      4.362      19.894</code></pre>
+Phase_2 9.673  8.953      5.038      18.029
+Phase_3 5.939  5.803      4.013       8.790
+Phase_4 6.695  6.522      4.587       9.705
+Phase_5 9.267  8.277      4.301      20.036</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>SEA_B_phase_long <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(SEA_B_phase) <span class="sc">%&gt;%</span></span>
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"Phase"</span>, <span class="at">values_to =</span> <span class="st">"SEA_B"</span>) <span class="sc">%&gt;%</span></span>
@@ -802,12 +810,12 @@ Pairwise posterior probabilities P(row &gt; col):</code></pre>
 <span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"  P(%s &gt; %s) = %.3f</span><span class="sc">\n</span><span class="st">"</span>, pair[<span class="dv">1</span>], pair[<span class="dv">2</span>], p))</span>
 <span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  P(Phase_2 &gt; Phase_3) = 0.878
-  P(Phase_2 &gt; Phase_4) = 0.814
-  P(Phase_2 &gt; Phase_5) = 0.555
-  P(Phase_3 &gt; Phase_4) = 0.336
+<pre><code>  P(Phase_2 &gt; Phase_3) = 0.881
+  P(Phase_2 &gt; Phase_4) = 0.802
+  P(Phase_2 &gt; Phase_5) = 0.562
+  P(Phase_3 &gt; Phase_4) = 0.343
   P(Phase_3 &gt; Phase_5) = 0.184
-  P(Phase_4 &gt; Phase_5) = 0.258</code></pre>
+  P(Phase_4 &gt; Phase_5) = 0.301</code></pre>
 </div>
 </div>
 </section>
@@ -1017,13 +1025,13 @@ Posterior SEA_B summary for all groups (‰²):</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">round</span>(<span class="fu">t</span>(SEA_B_combined_summary), <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                     mean median lower.2.5% upper.97.5%
-Salvatierra Humans 22.990 22.652     18.070      29.214
-Mendoza Humans     29.004 28.244     19.832      42.169
-Ungulates           4.171  3.914      2.239       7.748
-Armadillos          5.405  5.113      3.189       9.212
-Riverines           7.027  6.828      4.391      10.747
-Muscovy Duck       19.363 18.048      9.757      37.270
-Rodents             9.258  8.579      4.733      17.688</code></pre>
+Salvatierra Humans 22.972 22.782     18.014      29.227
+Mendoza Humans     29.088 28.369     19.972      42.847
+Ungulates           4.153  3.843      2.237       7.760
+Armadillos          5.474  5.140      3.188       9.453
+Riverines           7.045  6.817      4.537      10.721
+Muscovy Duck       19.432 18.085      9.875      37.551
+Rodents             9.330  8.599      4.839      18.420</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>plot_df <span class="ot">&lt;-</span> siber_combined_df <span class="sc">%&gt;%</span></span>
 <span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">d13C =</span> iso1, <span class="at">d15N =</span> iso2)</span>
@@ -1358,7 +1366,7 @@ Phase 3   0.317   1.000   0.535   0.533
 Phase 4   0.188   0.535   1.000   0.379
 Phase 5   0.006   0.533   0.379   1.000</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb137"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 11d. Visualise as annotated heatmap ---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb137"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---. Visualise as annotated heatmap ---</span></span>
 <span id="cb137-2"><a href="#cb137-2" aria-hidden="true" tabindex="-1"></a>overlap_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(overlap_matrix) <span class="sc">%&gt;%</span></span>
 <span id="cb137-3"><a href="#cb137-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="st">"Phase_row"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb137-4"><a href="#cb137-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>Phase_row, <span class="at">names_to =</span> <span class="st">"Phase_col"</span>, <span class="at">values_to =</span> <span class="st">"Overlap"</span>) <span class="sc">%&gt;%</span></span>
@@ -1457,7 +1465,7 @@ Low overlap between Phase 2 and later phases confirms dietary divergence.</code>
 <section id="layman-metrics-and-community-level-niche-partitioning" class="level5">
 <h5 class="anchored" data-anchor-id="layman-metrics-and-community-level-niche-partitioning">Layman Metrics and Community-Level Niche Partitioning</h5>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb150"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb150-1"><a href="#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 12a. Layman metrics computed directly from posterior ellipse centroids ---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb150"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb150-1"><a href="#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  Layman metrics computed directly from posterior ellipse centroids ---</span></span>
 <span id="cb150-2"><a href="#cb150-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Instead of bayesianLayman() which requires a specific multi-community</span></span>
 <span id="cb150-3"><a href="#cb150-3" aria-hidden="true" tabindex="-1"></a><span class="co"># structure, we extract the posterior mean vectors from ellipses_phase</span></span>
 <span id="cb150-4"><a href="#cb150-4" aria-hidden="true" tabindex="-1"></a><span class="co"># and compute Layman metrics manually across MCMC draws.</span></span>
@@ -1504,8 +1512,8 @@ Posterior centroid draws structure:</code></pre>
 Columns: 4
 $ draw  &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 1…
 $ phase &lt;chr&gt; "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2",…
-$ mu1   &lt;dbl&gt; 5.260016, 5.015873, 4.260394, 2.522004, 2.324400, 6.563107, 2.65…
-$ mu2   &lt;dbl&gt; 1.72521963, 0.15289952, 1.58179940, 1.19435120, 0.49721624, 2.45…</code></pre>
+$ mu1   &lt;dbl&gt; 1.937532, 7.696923, 4.226281, 2.017252, 1.930712, 1.979018, 3.93…
+$ mu2   &lt;dbl&gt; 0.96980325, 3.51747348, 2.00134783, 0.36311704, 0.38974790, 1.00…</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb158"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Compute Layman metrics per posterior draw ---</span></span>
 <span id="cb158-2"><a href="#cb158-2" aria-hidden="true" tabindex="-1"></a><span class="co"># For each draw, compute the 6 Layman metrics across the 4 phase centroids</span></span>
@@ -1593,14 +1601,14 @@ Posterior Layman Metrics Summary:</code></pre>
 <pre><code># A tibble: 6 × 5
   Metric    mean median lower upper
   &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1 dC_range  3.67   2.84 0.794 11.6 
-2 dN_range  4.66   3.97 1.24  12.1 
-3 TA        5.81   3.54 0.556 24.3 
-4 CD        2.13   1.77 0.761  5.61
-5 MNND      2.03   1.77 0.766  4.84
-6 SDNND     1.71   1.21 0.117  6.36</code></pre>
+1 dC_range  3.74   2.87 0.726 12.6 
+2 dN_range  4.78   3.97 1.40  13.2 
+3 TA        6.06   3.66 0.466 24.8 
+4 CD        2.18   1.78 0.776  5.95
+5 MNND      2.07   1.79 0.765  5.03
+6 SDNND     1.78   1.23 0.144  6.78</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb164"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb164-1"><a href="#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 12b. Visualise ---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb164"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb164-1"><a href="#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---  Visualise ---</span></span>
 <span id="cb164-2"><a href="#cb164-2" aria-hidden="true" tabindex="-1"></a>layman_long <span class="ot">&lt;-</span> layman_draws <span class="sc">%&gt;%</span></span>
 <span id="cb164-3"><a href="#cb164-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>draw) <span class="sc">%&gt;%</span></span>
 <span id="cb164-4"><a href="#cb164-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"Metric"</span>, <span class="at">values_to =</span> <span class="st">"Value"</span>) <span class="sc">%&gt;%</span></span>
@@ -1651,7 +1659,7 @@ Posterior Layman Metrics Summary:</code></pre>
 </figure>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb165"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb165-1"><a href="#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 12c. Niche partitioning: group centroids in isotopic space ---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb165"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb165-1"><a href="#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Niche partitioning: group centroids in isotopic space ---</span></span>
 <span id="cb165-2"><a href="#cb165-2" aria-hidden="true" tabindex="-1"></a>centroids <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
 <span id="cb165-3"><a href="#cb165-3" aria-hidden="true" tabindex="-1"></a>  humans <span class="sc">%&gt;%</span></span>
 <span id="cb165-4"><a href="#cb165-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">paste</span>(site, <span class="st">"Humans"</span>)) <span class="sc">%&gt;%</span></span>
@@ -1860,37 +1868,35 @@ $ site          &lt;chr&gt; "Salvatierra", "Salvatierra", "Salvatierra", "Salvat
 <div class="cell-output cell-output-stdout">
 <pre><code>C4 (maize) endpoint:                -6.00‰</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb184"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb184-1"><a href="#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 13b. Compute f_C4 for each individual ---</span></span>
-<span id="cb184-2"><a href="#cb184-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the two-source mixing model to every individual in the dataset.</span></span>
-<span id="cb184-3"><a href="#cb184-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Values outside [0,1] are clamped — these indicate the simple two-source</span></span>
-<span id="cb184-4"><a href="#cb184-4" aria-hidden="true" tabindex="-1"></a><span class="co"># model is not perfectly capturing the full dietary complexity, but they</span></span>
-<span id="cb184-5"><a href="#cb184-5" aria-hidden="true" tabindex="-1"></a><span class="co"># remain informative as relative indicators.</span></span>
-<span id="cb184-6"><a href="#cb184-6" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb184-7"><a href="#cb184-7" aria-hidden="true" tabindex="-1"></a>humans_phase <span class="ot">&lt;-</span> humans <span class="sc">%&gt;%</span></span>
-<span id="cb184-8"><a href="#cb184-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(phase <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"4"</span>, <span class="st">"5"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb184-9"><a href="#cb184-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb184-10"><a href="#cb184-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">phase =</span> <span class="fu">factor</span>(phase, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"4"</span>, <span class="st">"5"</span>)),</span>
-<span id="cb184-11"><a href="#cb184-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">Unit  =</span> <span class="fu">as.character</span>(Unit)</span>
-<span id="cb184-12"><a href="#cb184-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb184-13"><a href="#cb184-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(d13C, d15N, phase, site)   <span class="co"># keep only what is needed</span></span>
-<span id="cb184-14"><a href="#cb184-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb184-15"><a href="#cb184-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Rebuild SIBER phase object from scratch</span></span>
-<span id="cb184-16"><a href="#cb184-16" aria-hidden="true" tabindex="-1"></a>siber_phase_df <span class="ot">&lt;-</span> humans_phase <span class="sc">%&gt;%</span></span>
-<span id="cb184-17"><a href="#cb184-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb184-18"><a href="#cb184-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">iso1      =</span> <span class="fu">as.numeric</span>(d13C),</span>
-<span id="cb184-19"><a href="#cb184-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">iso2      =</span> <span class="fu">as.numeric</span>(d15N),</span>
-<span id="cb184-20"><a href="#cb184-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">group     =</span> <span class="fu">as.character</span>(phase),</span>
-<span id="cb184-21"><a href="#cb184-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">community =</span> <span class="st">"1"</span></span>
-<span id="cb184-22"><a href="#cb184-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb184-23"><a href="#cb184-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(iso1), <span class="sc">!</span><span class="fu">is.na</span>(iso2)) <span class="sc">%&gt;%</span></span>
-<span id="cb184-24"><a href="#cb184-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(iso1, iso2, group, community) <span class="sc">%&gt;%</span></span>
-<span id="cb184-25"><a href="#cb184-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setNames</span>(<span class="fu">c</span>(<span class="st">"iso1"</span>, <span class="st">"iso2"</span>, <span class="st">"group"</span>, <span class="st">"community"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb184-26"><a href="#cb184-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb184-27"><a href="#cb184-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">group     =</span> <span class="fu">as.factor</span>(group),</span>
-<span id="cb184-28"><a href="#cb184-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">community =</span> <span class="fu">as.factor</span>(community)</span>
-<span id="cb184-29"><a href="#cb184-29" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb184-30"><a href="#cb184-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb184-31"><a href="#cb184-31" aria-hidden="true" tabindex="-1"></a>siber_phase    <span class="ot">&lt;-</span> <span class="fu">createSiberObject</span>(siber_phase_df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb184"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb184-1"><a href="#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---  Compute f_C4 for each individual ---</span></span>
+<span id="cb184-2"><a href="#cb184-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-3"><a href="#cb184-3" aria-hidden="true" tabindex="-1"></a><span class="co"># model is not perfectly capturing the full dietary complexity, but they remain informative as relative indicators.</span></span>
+<span id="cb184-4"><a href="#cb184-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb184-5"><a href="#cb184-5" aria-hidden="true" tabindex="-1"></a>humans_phase <span class="ot">&lt;-</span> humans <span class="sc">%&gt;%</span></span>
+<span id="cb184-6"><a href="#cb184-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(phase <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"4"</span>, <span class="st">"5"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb184-7"><a href="#cb184-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb184-8"><a href="#cb184-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">phase =</span> <span class="fu">factor</span>(phase, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"4"</span>, <span class="st">"5"</span>)),</span>
+<span id="cb184-9"><a href="#cb184-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">Unit  =</span> <span class="fu">as.character</span>(Unit)</span>
+<span id="cb184-10"><a href="#cb184-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb184-11"><a href="#cb184-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(d13C, d15N, phase, site)   <span class="co"># keep only what is needed</span></span>
+<span id="cb184-12"><a href="#cb184-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-13"><a href="#cb184-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Rebuild SIBER phase object from scratch</span></span>
+<span id="cb184-14"><a href="#cb184-14" aria-hidden="true" tabindex="-1"></a>siber_phase_df <span class="ot">&lt;-</span> humans_phase <span class="sc">%&gt;%</span></span>
+<span id="cb184-15"><a href="#cb184-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb184-16"><a href="#cb184-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">iso1      =</span> <span class="fu">as.numeric</span>(d13C),</span>
+<span id="cb184-17"><a href="#cb184-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">iso2      =</span> <span class="fu">as.numeric</span>(d15N),</span>
+<span id="cb184-18"><a href="#cb184-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">group     =</span> <span class="fu">as.character</span>(phase),</span>
+<span id="cb184-19"><a href="#cb184-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">community =</span> <span class="st">"1"</span></span>
+<span id="cb184-20"><a href="#cb184-20" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb184-21"><a href="#cb184-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(iso1), <span class="sc">!</span><span class="fu">is.na</span>(iso2)) <span class="sc">%&gt;%</span></span>
+<span id="cb184-22"><a href="#cb184-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(iso1, iso2, group, community) <span class="sc">%&gt;%</span></span>
+<span id="cb184-23"><a href="#cb184-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setNames</span>(<span class="fu">c</span>(<span class="st">"iso1"</span>, <span class="st">"iso2"</span>, <span class="st">"group"</span>, <span class="st">"community"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb184-24"><a href="#cb184-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb184-25"><a href="#cb184-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">group     =</span> <span class="fu">as.factor</span>(group),</span>
+<span id="cb184-26"><a href="#cb184-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">community =</span> <span class="fu">as.factor</span>(community)</span>
+<span id="cb184-27"><a href="#cb184-27" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb184-28"><a href="#cb184-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-29"><a href="#cb184-29" aria-hidden="true" tabindex="-1"></a>siber_phase    <span class="ot">&lt;-</span> <span class="fu">createSiberObject</span>(siber_phase_df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in createSiberObject(siber_phase_df): The data object supplied is of class tibble. 
             This has likely occurred owing to use of the 
@@ -1964,7 +1970,7 @@ Initializing model</code></pre>
 <span id="cb188-16"><a href="#cb188-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">pct_maize =</span> f_C4 <span class="sc">*</span> <span class="dv">100</span></span>
 <span id="cb188-17"><a href="#cb188-17" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb188-18"><a href="#cb188-18" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb188-19"><a href="#cb188-19" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 13c. Summarise f_C4 by group ---</span></span>
+<span id="cb188-19"><a href="#cb188-19" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Summarise f_C4 by group ---</span></span>
 <span id="cb188-20"><a href="#cb188-20" aria-hidden="true" tabindex="-1"></a>maize_summary <span class="ot">&lt;-</span> mixing_df <span class="sc">%&gt;%</span></span>
 <span id="cb188-21"><a href="#cb188-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group) <span class="sc">%&gt;%</span></span>
 <span id="cb188-22"><a href="#cb188-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
@@ -2032,7 +2038,7 @@ Initializing model</code></pre>
 3 4        27           29.5         16.8
 4 5         7           28           18.1</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb196"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb196-1"><a href="#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 13e. Visualise maize contribution across groups ---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb196"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb196-1"><a href="#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Visualise maize contribution across groups ---</span></span>
 <span id="cb196-2"><a href="#cb196-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine group-level and phase-level for a two-panel figure</span></span>
 <span id="cb196-3"><a href="#cb196-3" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb196-4"><a href="#cb196-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Panel A: % maize by ecological group</span></span>

@@ -1332,23 +1332,43 @@ cat("  chunk13_maize_mixing_model.pdf\n")
 
 **Figure 1 — Site-level biplot (Chunk 6):** A δ¹³C vs δ¹⁵N scatter plot with 40% maximum likelihood ellipses shows Salvatierra and Mendoza populations nearly completely overlapping in isotopic space, with both sites positioned in the high-δ¹³C region consistent with substantial C4 (maize) consumption.
 
+![](CollDataSciPro_files/figure-html/unnamed-chunk-8-1.png)
+
 **Figure 2 — Posterior SEA_B distributions by site (Chunk 6):** Density plots of the posterior Bayesian Standard Ellipse Area show broadly overlapping distributions for both sites, confirming no credible difference in isotopic niche width between Salvatierra and Mendoza.
+
+![](CollDataSciPro_files/figure-html/unnamed-chunk-11-1.png)
 
 **Figure 3 — Diachronic phase biplot (Chunk 7):** A δ¹³C vs δ¹⁵N plot with ellipses by ceramic phase shows Phase 2 shifted toward higher δ¹³C values with minimal overlap with later phases, while Phases 3, 4, and 5 form a tightly clustered group in the −12 to −13‰ range.
 
+![](CollDataSciPro_files/figure-html/unnamed-chunk-13-1.png)
+
 **Figure 4 — Posterior SEA_B by phase (Chunk 7):** Density curves show Phase 2 has a distinctly narrower posterior SEA_B distribution than later phases, suggesting a more uniform and specialized diet in the earliest occupation.
+
+![](CollDataSciPro_files/figure-html/unnamed-chunk-13-2.png)
 
 **Figure 5 — Combined human and fauna biplot (Chunk 8):** The full community biplot shows clear isotopic separation between faunal groups, with Ungulates anchoring the C3 end and Armadillos/Muscovy Ducks clustering near the human populations at the C4 end.
 
+![](CollDataSciPro_files/figure-html/unnamed-chunk-14-1.png)
+
 **Figure 6 — Posterior SEA_B boxplot for all groups (Chunk 8):** Muscovy ducks and Rodents show the widest posterior niche width uncertainty relative to their sample sizes, while Ungulates and humans show tighter, better-constrained ellipses.
+
+![](CollDataSciPro_files/figure-html/unnamed-chunk-14-2.png)
 
 **Figure 7 — Diachronic overlap heatmap (Chunk 11):** The 4×4 proportional overlap matrix visualised as an annotated heatmap shows near-zero overlap between Phase 2 and Phases 4–5, and high overlap (\>0.7) among Phases 3, 4, and 5 — quantifying dietary convergence after CE 800 for the first time.
 
+![](CollDataSciPro_files/figure-html/unnamed-chunk-18-1.png)
+
 **Figure 8 — Bayesian Layman metrics (Chunk 12):** Posterior density plots for the six community-level metrics show that the δ¹³C range across phase centroids has the widest posterior uncertainty, reflecting the main axis of dietary change through time, while δ¹⁵N range and MNND are relatively stable.
+
+![](CollDataSciPro_files/figure-html/unnamed-chunk-19-1.png)
 
 **Figure 9 — Centroid partitioning map (Chunk 12):** Group centroids plotted in isotopic space with nearest-neighbour arrows show that Muscovy Ducks are isotopically closest to the human populations, while Ungulates are most distant — visualising the domestication-relevant dietary proximity between ducks and humans.
 
+![](CollDataSciPro_files/figure-html/unnamed-chunk-19-2.png)
+
 **Figure 10 — Maize mixing model violin plots (Chunk 13):** Two-panel figure showing estimated % maize contribution by ecological group (Panel A) and by ceramic phase in humans (Panel B). The diachronic panel clearly shows the decline from \~70% in Phase 2 to \~50% in Phase 5, with diamond markers showing phase means.
+
+![](CollDataSciPro_files/figure-html/unnamed-chunk-21-1.png)
 
 ##### Patterns
 
