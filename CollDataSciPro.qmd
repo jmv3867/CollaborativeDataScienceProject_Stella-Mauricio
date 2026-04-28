@@ -31,29 +31,37 @@ Used Analysis:
 
 #### The problem
 
-Introduction
+Find innovative ways to analyze specific cases based on small and noisy datasets. Archaeological research reports several observations from diverse data that most of times does not show regular patterns or relations between them. In this case, the exploration of quantitative datasets helps us to establish correlations between different variables in order to foster interpretations on ancient human behavior and change.
 
 #### Chosen methods
 
 what is this method?
 
-##### Bayesian isotopic niche modeling (SIBER) with {SIBER} {SIBER=""}
+##### Bayesian isotopic niche modeling (SIBER) with {SIBER} and Kmeans Hclust {SIBER=""}
 
 This module introduces Bayesian isotopic niche modeling using SIBER to compare dietary niches across species and through time, demonstrating how ecologists and archaeologists can make robust inferences from small, noisy datasets.
 
-When should be used
+##### When should be used
 
-How can Bayesian methods be used to estimate and compare dietary niches when sample sizes are small and uncertainty is high?
+SIBER is the appropriate tool when you need to **characterise and compare dietary or ecological niches** from stable isotope data (δ¹³C and δ¹⁵N) across multiple groups simultaneously. It is especially well suited for archaeological and ecological studies where sample sizes are small and unequal, uncertainty needs to be explicitly quantified, and classical approaches like convex hulls or t-tests would either be biased or unable to answer the research question.
 
-Why does it matter
+The core innovation of SIBER is replacing single-point niche estimates with **full posterior distributions** over all plausible ellipse sizes and shapes given the observed data. It does this through three mechanisms:
 
-#### The data
+**Small-sample correction:** The inverse-Wishart prior on the covariance matrix regularises extreme estimates when n is small, producing stable and interpretable ellipses even with as few as 9 observations — something classical convex hulls and maximum likelihood ellipses cannot do reliably.
 
-Where it comes from
+**Uncertainty quantification:** Rather than asking "is group A's niche larger than group B's?" as a binary question, SIBER answers "in what fraction of posterior draws is A's ellipse area larger than B's?" — a direct probability statement that honestly reflects how much the data actually support the comparison.
 
-What variables matter
+**Propagation of uncertainty:** All downstream quantities — ellipse overlap, Layman community metrics, centroid distances — inherit uncertainty from the ellipse parameters, meaning conclusions about niche differences are automatically hedged by the precision of the underlying estimates.
 
-Analytical workflow: step by step, concrete interpretation
+##### Why does it matter
+
+At the **methodological level**, SIBER transformed isotopic ecology from univariate mean comparisons to two-dimensional niche characterisation, and the Bayesian framework made that characterisation honest about its own limitations when data are sparse.
+
+At the **practical level**, implementing SIBER in a fully reproducible R script within a Quarto vignette means the analysis can be independently verified, extended with new data, and adapted to future excavations across the southern Amazon without redesigning the workflow from scratch.
+
+In short, SIBER matters because it is the only method that can simultaneously characterise dietary niches, compare them across groups with unequal and small sample sizes, and communicate the uncertainty in those comparisons in a statistically principled way — all of which are non-negotiable requirements for credible dietary reconstruction in archaeology and ecology.
+
+#### Analytical workflow: step by step, concrete interpretation
 
 ##### Install and load required packages
 
@@ -705,7 +713,7 @@ for (i in seq_len(nrow(overlap_results))) {
 cat("\n--- Proportional Overlap Matrix ---\n")
 print(round(overlap_matrix, 3))
 
-# --- 11d. Visualise as annotated heatmap ---
+# ---. Visualise as annotated heatmap ---
 overlap_df <- as.data.frame(overlap_matrix) %>%
   rownames_to_column("Phase_row") %>%
   pivot_longer(-Phase_row, names_to = "Phase_col", values_to = "Overlap") %>%
@@ -778,7 +786,7 @@ cat("High overlap among Phases 3-5 indicates dietary stabilisation after CE 800.
 ##### Layman Metrics and Community-Level Niche Partitioning
 
 ```{r}
-# --- 12a. Layman metrics computed directly from posterior ellipse centroids ---
+#  Layman metrics computed directly from posterior ellipse centroids ---
 # Instead of bayesianLayman() which requires a specific multi-community
 # structure, we extract the posterior mean vectors from ellipses_phase
 # and compute Layman metrics manually across MCMC draws.
@@ -888,7 +896,7 @@ layman_summary <- layman_draws %>%
 cat("\nPosterior Layman Metrics Summary:\n")
 print(layman_summary %>% mutate(across(where(is.numeric), ~ round(.x, 3))))
 
-# --- 12b. Visualise ---
+# ---  Visualise ---
 layman_long <- layman_draws %>%
   select(-draw) %>%
   pivot_longer(everything(), names_to = "Metric", values_to = "Value") %>%
@@ -933,7 +941,7 @@ p_layman <- ggplot(layman_long, aes(x = Value, fill = Metric)) +
 
 print(p_layman)
 
-# --- 12c. Niche partitioning: group centroids in isotopic space ---
+# --- Niche partitioning: group centroids in isotopic space ---
 centroids <- bind_rows(
   humans %>%
     mutate(group = paste(site, "Humans")) %>%
@@ -1068,11 +1076,9 @@ C4_endpoint <- -6.0    # pure C4 (maize) collagen endpoint from literature
 cat(sprintf("C3 consumer endpoint (δ13C + TEF): %.2f‰\n", C3_endpoint))
 cat(sprintf("C4 (maize) endpoint:                %.2f‰\n", C4_endpoint))
  
-# --- 13b. Compute f_C4 for each individual ---
-# Apply the two-source mixing model to every individual in the dataset.
-# Values outside [0,1] are clamped — these indicate the simple two-source
-# model is not perfectly capturing the full dietary complexity, but they
-# remain informative as relative indicators.
+# ---  Compute f_C4 for each individual ---
+
+# model is not perfectly capturing the full dietary complexity, but they remain informative as relative indicators.
  
 humans_phase <- humans %>%
   filter(phase %in% c("2", "3", "4", "5")) %>%
@@ -1119,7 +1125,7 @@ mixing_df <- bind_rows(
     pct_maize = f_C4 * 100
   )
  
-# --- 13c. Summarise f_C4 by group ---
+# --- Summarise f_C4 by group ---
 maize_summary <- mixing_df %>%
   group_by(group) %>%
   summarise(
@@ -1160,7 +1166,7 @@ maize_phase_summary <- maize_phase %>%
 cat("\n--- Estimated % Maize Contribution by Ceramic Phase (Humans) ---\n")
 print(maize_phase_summary)
  
-# --- 13e. Visualise maize contribution across groups ---
+# --- Visualise maize contribution across groups ---
 # Combine group-level and phase-level for a two-panel figure
  
 # Panel A: % maize by ecological group
