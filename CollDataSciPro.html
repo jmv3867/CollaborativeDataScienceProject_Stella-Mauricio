@@ -108,26 +108,138 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<section id="ant388c-applied-data-analysis" class="level1">
+<h1>ANT388C Applied Data Analysis</h1>
 <section id="methods-exploration-project" class="level2">
 <h2 class="anchored" data-anchor-id="methods-exploration-project">Methods Exploration Project</h2>
-<p>Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <a href="https://quarto.org" class="uri">https://quarto.org</a>.</p>
+<section id="stella-and-mauricio" class="level3">
+<h3 class="anchored" data-anchor-id="stella-and-mauricio">Stella and Mauricio</h3>
+<section id="abstract" class="level4">
+<h4 class="anchored" data-anchor-id="abstract">Abstract</h4>
+<p>This project is implemented by Stella and Mauricio with the intention to explore new R analysis methods with public available data. For this case we have chosen an interesting archaeological research article from Bolivian Amazon. Our intention to prove the capacity of R to create new analysis using quantitative data and ploting it as dynamic exercises within our collaborative method exploration project for Applied Data Analysis class.</p>
 </section>
-<section id="running-code" class="level2">
-<h2 class="anchored" data-anchor-id="running-code">Running Code</h2>
-<p>When you click the <strong>Render</strong> button a document will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
+<section id="about-the-dataset" class="level4">
+<h4 class="anchored" data-anchor-id="about-the-dataset">About the dataset</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1550559432.png" class="img-fluid figure-img"></p>
+<figcaption>This article is an interesting case of archaeological scholarship that combines the introduction of new data in agriculture and animal domestication to sustain the importance of the Amazonian Anthropogenic Landscapes within the Human and Ecological history of the Americas. The data presented in this article are new measures of stable carbon and nitrogen Isotopes from 86 human and 68 animals remains dated around ~CE 700 and 1400 from the Llanos de Mojos, Bolivia. This data sustain the presence of maize agriculture and evidences of muscovy duscks (Cairina moschata) domestication with early dates from CE 800.</figcaption>
+</figure>
+</div>
+<p><img src="images/clipboard-1611612522.png" class="img-fluid"></p>
+<p>Key words: maize agriculture, animal management, low-density urbanism</p>
+<p>Used Analysis:</p>
+<ul>
+<li><p>ANOVA and Krustkal-Wallis</p></li>
+<li><p>Shapiro-Wilk Assuption testing</p></li>
+</ul>
+</section>
+<section id="the-problem" class="level4">
+<h4 class="anchored" data-anchor-id="the-problem">The problem</h4>
+<p>Introduction</p>
+</section>
+<section id="chosen-methods" class="level4">
+<h4 class="anchored" data-anchor-id="chosen-methods">Chosen methods</h4>
+<p>what is this method?</p>
+<section id="bayesian-isotopic-niche-modeling-siber-with-siber" class="level5" data-siber="">
+<h5 data-siber="" class="anchored" data-anchor-id="bayesian-isotopic-niche-modeling-siber-with-siber">Bayesian isotopic niche modeling (SIBER) with {SIBER}</h5>
+<p>This module introduces Bayesian isotopic niche modeling using SIBER to compare dietary niches across species and through time, demonstrating how ecologists and archaeologists can make robust inferences from small, noisy datasets.</p>
+<p>When should be used</p>
+<p>How can Bayesian methods be used to estimate and compare dietary niches when sample sizes are small and uncertainty is high?</p>
+<p>Why does it matter</p>
+</section>
+</section>
+<section id="the-data" class="level4">
+<h4 class="anchored" data-anchor-id="the-data">The data</h4>
+<p>Where it comes from</p>
+<p>What variables matter</p>
+<p>Analytical workflow: step by step, concrete interpretation</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Packages and Libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SIBER)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'SIBER' was built under R version 4.5.3</code></pre>
 </div>
 </div>
-<p>You can add options to executable code like this</p>
+<section id="data-preparation" class="level5">
+<h5 class="anchored" data-anchor-id="data-preparation">Data preparation</h5>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 4</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>prepare_isotope_data <span class="ot">&lt;-</span> <span class="cf">function</span>(data, group, community, <span class="at">iso_c =</span> <span class="st">"d13C"</span>, <span class="at">iso_n =</span> <span class="st">"d15N"</span>) {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>({{group}}, {{community}}, {{iso_c}}, {{iso_n}})<span class="sc">%&gt;%</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">rename</span>(</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">group =</span> {{group}}, </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">community =</span> {{community}},</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">isso1 =</span> {{iso_c}},</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">iso2 =</span> {{iso_n}}</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    )<span class="sc">%&gt;%</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(iso1), <span class="sc">!</span><span class="fu">is.na</span>(iso2))</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(out)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+</section>
+<section id="fit-the-bayesian-niche-model" class="level5">
+<h5 class="anchored" data-anchor-id="fit-the-bayesian-niche-model">Fit the Bayesian niche model</h5>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fit_siber_model <span class="ot">&lt;-</span> <span class="cf">function</span>(siber_data) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  siber_obj <span class="ot">&lt;-</span> SIBER<span class="sc">::</span><span class="fu">createSiberObject</span>(siber_data)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  priors <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">R =</span> <span class="fu">list</span>(<span class="at">V =</span> <span class="fu">diag</span>(<span class="dv">2</span>), <span class="at">nu =</span> <span class="dv">2</span>),</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">k =</span> <span class="dv">2</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">tau.mu =</span> <span class="fl">1e-3</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  mcmc <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">n.iter =</span> <span class="fl">2e4</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">n.burnin =</span> <span class="fl">1e3</span>,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">n.thin =</span> <span class="dv">10</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">n.chains =</span> <span class="dv">2</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  fit<span class="ot">&lt;-</span> SIBER<span class="sc">::</span><span class="fu">siberMVN</span>(</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    siber_obj,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">parms =</span> priors,</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">n.iter =</span> mcmc<span class="sc">$</span>n.iter,</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">n.burnin =</span> mcmc<span class="sc">$</span>n.burnin,</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">n.thin =</span> mcmc<span class="sc">$</span>n.thin,</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">n.chains =</span> mcmc<span class="sc">$</span>n.chains</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="at">model =</span> fit, <span class="at">siber_object =</span> siber_obj))</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>The <code>echo: false</code> option disables the printing of code (only output is displayed).</p>
+</section>
+<section id="plot-and-interpret-niches-optimal-but-very-strong" class="level5">
+<h5 class="anchored" data-anchor-id="plot-and-interpret-niches-optimal-but-very-strong">Plot and interpret niches (optimal but very strong)</h5>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plot_siber_niches <span class="ot">&lt;-</span> <span class="cf">function</span>(siber_object) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  SIBER<span class="sc">::</span><span class="fu">plotSiberObject</span>(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    siber_object,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">group.hulls =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">ellipses =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">iso.order =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="datasets" class="level5">
+<h5 class="anchored" data-anchor-id="datasets">Datasets</h5>
+</section>
+</section>
+<section id="the-results" class="level4">
+<h4 class="anchored" data-anchor-id="the-results">The results</h4>
+<p>Plots</p>
+<p>Patterns</p>
+<p>Assumptions and limitations</p>
+</section>
+<section id="conclusion" class="level4">
+<h4 class="anchored" data-anchor-id="conclusion">Conclusion</h4>
+<p>When this method is useful and when not</p>
+</section>
+</section>
+</section>
 </section>
 
 </main>

@@ -1,0 +1,74 @@
+Sample Code,Site ,Taxa,Species,Bone Part,Phase,Cut,Unit,Square,Level (cm),Collagen (mg),Yield (%),C% mean,C% 1?,?13CA,?13CB,?13CC,?13C mean,?13C 1?,N% mean,N% 1?,?15NA,?5N B,?5N C,?15N mean,?15N 1?,C/N ratio,Replicas,Session
+SAF1,Salvatierra,Deer,Mazama sp.,Tibia?,3,923,9,201/95,190-200,40,7.8,43.8,6.3,-20.6,-20.6,-20.6,-20.6,0.0,15.9,1.8,7.3,7.4,7.3,7.3,0.0,3.2,3,3
+SAF2,Salvatierra,9 band armadillo,Dasypus novemcinctus  ,Bone plate,3,923,9,201/95,190-200,23,5.8,42.5,1.2,-12.5,-12.5,-12.5,-12.5,0.0,15.7,0.3,9.2,9.3,9.3,9.3,0.0,3.2,3,3
+SAF3,Salvatierra,Snake,Unknown,Vertebrae,3,923,9,201/95,190-200,22,3.1,41.8,2.4,-18.0,-17.1,-17.1,-17.4,0.5,15.1,0.3,7.5,7.6,7.6,7.6,0.1,3.2,3,3
+SAF4,Salvatierra,9 band armadillo,Dasypus novemcinctus  ,Bone plate,3,923,9,203/98,170-180,18,3.0,41.1,1.3,-11.2,-11.2,-11.2,-11.2,0.0,15.0,0.5,8.3,8.4,8.4,8.4,0.1,3.1,3,3
+SAF5,Salvatierra,Swamp eel,Synbranchus spp.,Dentary,3,923,9,202/95,190-200,12,1.6,29.5,1.2,-13.2,-13.3,-13.2,-13.2,0.1,10.9,0.1,6.4,6.5,6.5,6.5,0.1,3.1,3,3
+SAF6,Salvatierra,6 band armadillo,Euphractus sexcinctus,Bone plate,3,923,9,202/95,190-200,52,4.5,30.4,5.5,-10.2,-10.2,-10.2,-10.2,0.0,11.0,1.6,9.6,9.6,9.5,9.5,0.0,3.2,3,3
+SAF7,Salvatierra,Caiman,Caiman sp.,Bone plate,3,923,9,201/97,200-210,60,6.7,36.7,2.2,-16.6,-16.6,-16.6,-16.6,0.0,13.9,0.6,5.9,6.0,6.0,6.0,0.1,3.1,3,3
+SAF8,Salvatierra,Swamp eel,Synbranchus spp.,Fin Spike,3,911,9,202/96,160-170,3,0.7,40.2,0.3,-17.2,-17.0,-17.0,-17.1,0.1,13.8,0.3,7.5,7.5,7.5,7.5,0.0,3.3,3,3
+SAF9,Salvatierra,6 band armadillo,Euphractus sexcinctus,Bone plate,3,911,9,202/96,160-170,53,4.5,34.5,1.5,-8.4,-8.3,-8.3,-8.3,0.0,13.2,0.1,8.7,8.7,8.7,8.7,0.0,3.0,3,3
+SAF10,Salvatierra,Muscovy duck,Cairina moschata,Pelvis (L),3,99,9,205/98,180-190,6,1.2,32.1,3.2,-13.1,-13.1,-13.0,-13.1,0.0,11.2,1.1,3.9,4.0,3.8,3.9,0.1,3.3,3,3
+SAF13,Salvatierra,Deer,Mazama sp.,Mandible,3,99,9,208/98,190-200,37,6.2,40.6,1.4,-19.7,-19.7,-19.7,-19.7,0.0,15.1,0.1,6.7,6.8,6.8,6.8,0.1,3.1,3,3
+SAF14,Salvatierra,Muscovy duck,Cairina moschata,Fibulae,3,99,9,201/95,180-190,77,10.5,42.0,1.0,-7.3,-7.3,-7.3,-7.3,0.0,15.6,0.1,8.2,8.3,8.3,8.3,0.0,3.1,3,3
+SAF15,Salvatierra,Swamp eel,Synbranchus spp.,Dentary,3,99,9,201/98,180-190,11,1.7,36.4,1.0,-18.3,-18.2,-18.3,-18.3,0.0,12.5,0.2,7.6,7.6,7.6,7.6,0.0,3.4,3,3
+SAF16,Salvatierra,9 band armadillo,Dasypus novemcinctus  ,Bone plate,3,99,9,201/98,180-190,46,9.2,44.9,0.8,-8.4,-8.4,-8.4,-8.4,0.0,16.9,0.2,7.5,7.5,7.5,7.5,0.0,3.1,3,3
+SAF17,Salvatierra,Muscovy duck,Cairina moschata,Pelvis,3,99,9,207/99,190-200,20,3.2,24.7,1.4,-12.2,-12.2,-12.2,-12.2,0.0,8.7,0.3,3.6,3.7,3.7,3.7,0.1,3.3,3,3
+SAF18,Salvatierra,Deer,Mazama sp.,Metapodial,3,99,9,204/97,180-190,21,4.0,43.7,1.5,-19.7,-19.7,-19.7,-19.7,0.0,15.6,0.0,6.6,6.8,6.8,6.8,0.1,3.2,3,3
+SAF19,Salvatierra,6 band armadillo,Euphractus sexcinctus,Tibia?,3,99,9,204/97,180-190,60,6.3,34.5,5.3,-11.1,-11.0,-11.1,-11.1,0.0,12.6,1.9,9.4,9.5,9.4,9.4,0.0,3.2,3,3
+SAF20,Salvatierra,6 band armadillo,Euphractus sexcinctus,Bone plate,3,99,9,204/97,170-180,14,2.4,38.0,1.1,-8.7,-8.9,-8.7,-8.8,0.1,13.3,0.4,9.3,9.4,9.4,9.4,0.1,3.4,3,3
+SAF21,Salvatierra,Muscovy duck,Cairina moschata,Metapodial,3,99,9,210/100,All layer,20,2.8,37.3,1.4,-10.2,-9.5,-9.5,-9.7,0.4,12.9,0.7,7.9,8.0,8.0,8.0,0.1,3.2,3,3
+SAF22,Salvatierra,Swamp eel,Synbranchus spp.,Dentary,3,99,9,210/100,All Layer,25,3.0,17.8,0.6,-15.6,-15.6,-15.6,-15.6,0.0,6.4,0.2,5.9,6.2,6.2,6.1,0.1,3.1,3,3
+SAF23,Salvatierra,Snake,Unknown,Vertebrae,3,99,9,208/100,All Layer,20,2.6,18.3,1.0,-16.9,-16.8,-16.8,-16.8,0.0,6.5,0.4,9.3,9.3,9.3,9.3,0.0,3.4,3,3
+SAF24,Salvatierra,Caiman,Caiman sp.,Bone plate,3,99,9,208/100,All Layer,47,3.6,25.4,1.4,-16.1,-16.1,-16.2,-16.1,0.0,9.7,0.1,4.8,4.9,4.9,4.8,0.1,3.1,3,3
+SAF25,Salvatierra,6 band armadillo,Euphractus sexcinctus,Bone plate,3,99,9,208/100,All Layer,30,3.9,39.5,1.6,-7.4,-7.3,-7.4,-7.4,0.0,14.7,0.2,9.5,9.6,9.6,9.6,0.1,3.1,3,3
+SAF26,Salvatierra,Deer,Mazama sp.,Tarsal,3,99,9,208/100,All Layer,77,8.7,42.5,2.7,-21.7,-21.5,-21.5,-21.6,0.1,16.3,0.4,4.5,4.7,4.7,4.6,0.1,3.0,3,3
+SAF27,Salvatierra,9 band armadillo,Dasypus novemcinctus  ,Radius,3,99,9,204/99,160-170,25,4.2,41.6,1.0,-9.8,-9.3,-9.3,-9.5,0.3,15.3,0.1,8.0,8.1,8.1,8.0,0.1,3.1,3,3
+SAF28,Salvatierra,Deer,Mazama sp.,Metapodial,3,99,9,207/98,180-190,34,4.2,19.4,1.2,-19.1,-19.1,-19.0,-19.1,0.0,7.0,0.3,4.3,4.4,4.4,4.4,0.1,3.3,3,3
+SAF29,Salvatierra,Muscovy duck,Cairina moschata,Humerus,3,99,9,105/100,All Layer,27,5.7,42.5,0.1,-8.9,-8.7,-8.7,-8.8,0.1,15.1,0.1,7.8,7.9,7.9,7.8,0.0,3.2,3,3
+SAF30,Salvatierra,Lungfish eel,Lepidosiren paradoxa,Tooth plate,3,99,9,105/100,All Layer,30,4.8,30.6,1.0,-15.9,-15.9,-15.9,-15.9,0.0,11.5,0.4,5.9,6.0,6.0,6.0,0.1,3.0,3,3
+SAF31,Salvatierra,Swamp eel,Synbranchus spp.,Dentary,3,99,9,105/100,All Layer,46,5.2,17.1,1.2,-17.9,-17.9,-18.2,-18.0,0.1,6.3,0.5,6.5,6.9,6.9,6.7,0.2,3.0,3,3
+SAF32,Salvatierra,Deer,Mazama sp.,Ulna,3,99,9,105/100,All Layer,34,6.7,40.8,0.8,-22.5,-22.5,-22.6,-22.5,0.0,15.0,0.0,6.0,6.1,6.1,6.0,0.1,3.1,3,3
+SAF33,Salvatierra,Agouti,Dasyprocta sp.,Mandible,3,99,9,105/100,All Layer,45,4.8,30.9,1.4,-12.6,-12.6,-12.6,-12.6,0.0,11.6,0.5,3.2,3.4,3.4,3.4,0.1,3.0,3,3
+SAF34,Salvatierra,Deer,Mazama sp.,Falange,3,99,9,206/98,170-180,44,5.1,25.8,0.8,-21.2,-21.2,-21.2,-21.2,0.0,9.3,0.3,4.5,4.6,4.6,4.5,0.1,3.1,3,3
+SAF35,Salvatierra,Lungfish eel,Lepidosiren paradoxa,Tooth plate,3,99,9,206/98,170-180,47,4.3,15.7,0.8,-14.7,-14.7,-14.7,-14.7,0.0,5.8,0.3,4.7,4.9,4.9,4.9,0.1,3.0,3,3
+SAF36,Salvatierra,Agouti,Dasyprocta sp.,Mandible,3,99,9,209/98,180-190,14,2.0,39.8,1.0,-14.7,-14.7,-14.7,-14.7,0.0,14.0,0.1,3.0,3.1,3.1,3.1,0.1,3.3,3,3
+SAF37,Salvatierra,Agouti,Dasyprocta sp.,Femur,3,99,9,208/98,170-180,9,1.3,42.3,2.5,-11.5,-11.4,-11.4,-11.4,0.0,15.0,0.8,4.7,4.8,4.8,4.8,0.0,3.4,3,3
+SAF38,Salvatierra,Deer,Mazama sp.,Falange,3,99,9,208/98,170-180,69,6.2,24.3,1.3,-19.9,-19.8,-19.9,-19.9,0.0,9.0,0.5,5.4,5.4,5.4,5.4,0.0,3.0,3,3
+SAF39,Salvatierra,Muscovy duck,Cairina moschata,Coracoid,3,99,9,207/98,200-210,42,8.9,42.7,2.1,-16.5,-17.2,-16.5,-16.7,0.4,15.5,0.0,5.7,5.8,5.8,5.8,0.0,3.2,3,3
+SAF40,Salvatierra,Agouti,Dasyprocta sp.,Mandible,3,99,9,210/99,180-190,16,2.0,31.3,1.7,-12.6,-12.6,-12.6,-12.6,0.0,11.0,0.1,3.4,3.5,3.5,3.5,0.0,3.2,3,3
+SAF41,Salvatierra,Caiman,Caiman sp.,Bone plate,3,99,9,210/99,180-190,17,2.5,37.1,1.5,-17.3,-17.3,-17.4,-17.3,0.0,13.4,0.6,5.8,5.8,5.8,5.8,0.0,3.1,3,3
+SAF42,Salvatierra,Agouti,Dasyprocta sp.,Femur,3,99,9,201/100,190-200,49,5.8,35.4,0.5,-12.8,-12.8,-12.8,-12.8,0.0,13.3,0.1,3.7,3.7,3.7,3.7,0.0,3.1,3,3
+SAF43,Salvatierra,Agouti,Dasyprocta sp.,Mandible,3,99,9,209/100,All Layer,17,2.8,33.7,0.8,-13.7,-13.4,-13.1,-13.4,0.3,12.0,0.3,2.9,3.0,3.0,3.0,0.1,3.2,3,3
+SAF44,Salvatierra,Lungfish eel,Lepidosiren paradoxa,Tooth plate,3,99,9,204/95,190-200,7,1.1,12.9,0.9,-18.8,-18.9,-18.8,-18.9,0.1,3.8,0.2,6.9,7.2,7.1,7.1,0.1,3.9,3,4
+SAF46,Salvatierra,Muscovy duck,Cairina moschata,Fibulae,3,99,9,207/100,All Layer,23,4.5,41.0,0.4,-6.3,-6.3,-6.3,-6.3,0.0,14.6,0.1,6.4,6.5,6.5,6.5,0.1,3.2,3,3
+SAF47,Salvatierra,9 band armadillo,Dasypus novemcinctus  ,Tibia/fibulae,3,99,9,207/100,All Layer,14,2.8,36.9,4.5,-9.0,-9.1,-8.9,-9.0,0.1,12.9,1.2,8.7,8.7,8.5,8.6,0.1,3.3,3,4
+SAF48,Salvatierra,Tapir,Tapirus terrestris,Falange,3,99,9,207/99,170-180,68,7.6,36.5,5.7,-20.0,-19.7,-20.0,-19.9,0.2,13.2,1.7,5.5,5.6,5.6,5.5,0.0,3.2,3,4
+SAF49,Salvatierra,Lungfish eel,Lepidosiren paradoxa,Tooth plate,3,99,9,209/99,170-180,16,3.1,34.4,4.6,-15.3,-15.5,-15.3,-15.4,0.1,12.1,1.2,5.8,5.7,5.8,5.8,0.0,3.3,3,4
+SAF50,Salvatierra,Deer,Mazama sp.1,Falange,3,99,9,203/98,160-170,18,3.9,43.2,5.3,-9.7,-9.6,-9.6,-9.6,0.0,15.4,1.5,5.2,5.2,5.1,5.2,0.1,3.2,3,4
+SAF51,Salvatierra,Caiman,Caiman sp.,Bone plate,3,99,9,203/95,170-180,38,6.3,20.0,2.2,-16.1,-16.2,-16.2,-16.2,0.0,6.8,0.6,4.4,4.4,4.4,4.4,0.0,3.4,3,4
+SAF53,Salvatierra,Swamp eel,Synbranchus spp.,Mandible,1,1155,10,204/111,290-300,7,1.5,26.4,4.0,-14.7,-14.7,-14.6,-14.7,0.1,9.5,1.2,6.0,5.9,6.0,6.0,0.0,3.2,3,4
+SAF54,Salvatierra,Swamp eel,Synbranchus spp.,Mandible,1,1153,10,207/112,250-260,7,1.1,42.4,6.5,-16.6,-16.7,-16.8,-16.7,0.1,15.0,1.8,7.2,7.2,7.2,7.2,0.0,3.3,3,4
+SAF55,Salvatierra,Muscovy duck,Cairina moschata,Tarsal,1,1153,10,207/112,250-260,14,3.3,41.1,5.6,-11.2,-11.2,-11.2,-11.2,0.0,14.6,1.6,7.5,7.5,7.5,7.5,0.0,3.3,3,4
+SAF56,Salvatierra,Deer,Mazama sp.1,Humerus,1,1161,10,207/112,290-300,27,3.4,31.0,4.6,-15.0,-15.0,-15.0,-15.0,0.0,11.2,1.2,3.8,3.7,3.8,3.8,0.0,3.2,3,4
+SAF57,Salvatierra,Swamp eel,Synbranchus spp.,Mandible,1,1153,10,210/112,250-260,22,4.1,20.0,3.5,-20.5,-20.5,-20.7,-20.6,0.1,7.1,1.0,8.4,8.6,8.4,8.5,0.1,3.3,3,4
+SAF58,Salvatierra,Muscovy Duck,Cairina moschata,Epistropheus,2,1134,10,201/112,230-240,20,3.0,42.5,6.1,-10.3,-10.2,-10.2,-10.2,0.0,15.2,1.7,9.8,9.8,9.8,9.8,0.0,3.2,3,4
+SAF59,Salvatierra,Capybara,H. hydrochaeris,Mandible,2,1131,10,208/110,190-200,55,6.5,22.6,4.6,-12.4,-12.3,-12.4,-12.4,0.1,8.1,1.4,5.4,5.4,5.3,5.4,0.0,3.2,3,4
+SAF60,Salvatierra,9 band armadillo,Dasypus novemcinctus  ,Bone plate,2,1131,10,208/110,190-200,2,1.0,45.1,6.1,-10.0,-9.9,-9.9,-9.9,0.1,15.9,1.7,9.0,9.1,9.1,9.1,0.1,3.3,3,4
+SAF61,Salvatierra,Muscovy duck,Cairina moschata,Coracoid,2,1131,10,209/110,200-210,26,5.1,41.5,4.2,-16.6,-16.6,-16.6,-16.6,0.0,14.9,1.1,6.1,6.0,6.1,6.1,0.1,3.2,3,4
+SAF62,Salvatierra,9 band armadillo,Dasypus novemcinctus  ,Bone plate,2,1131,10,209/110,200-210,7,2.3,44.6,7.5,-10.0,-10.0,-10.2,-10.1,0.1,15.8,2.0,8.7,8.6,8.6,8.6,0.0,3.2,3,4
+SAF63,Salvatierra,6 band armadillo,Euphractus sexcinctus,Bone plate,2,1131,10,209/110,200-210,46,6.0,19.3,2.7,-6.2,-6.2,-6.3,-6.2,0.1,6.9,0.7,9.5,9.5,9.4,9.5,0.1,3.2,3,4
+SAF64,Salvatierra,Caiman,Caiman sp.,Bone plate,2,1131,10,207/111,190-200,59,4.6,14.6,1.6,-16.1,-16.2,-16.3,-16.2,0.1,5.3,0.4,5.8,5.8,5.8,5.8,0.0,3.2,3,4
+SAF65,Salvatierra,9 band armadillo,Dasypus novemcinctus  ,Tibia/fibulae,2,1131,10,208/110,200-210,10,2.5,43.7,6.2,-15.3,-15.3,-15.3,-15.3,0.0,15.4,1.7,7.3,7.2,7.2,7.2,0.0,3.3,3,4
+SAF66,Salvatierra,Muscovy duck,Cairina moschata,Sternum,2,1128,10,204/108,160-170,15,3.7,40.4,5.1,-14.1,-14.1,-14.1,-14.1,0.0,14.3,1.5,9.3,9.3,9.3,9.3,0.0,3.3,3,4
+SAF67,Salvatierra,Caiman,Caiman sp.,Bone plate,2,1125,10,202/112,190-200,41,5.0,19.5,2.2,-16.0,-15.9,-15.9,-16.0,0.0,7.0,0.7,6.1,6.2,6.1,6.1,0.0,3.2,3,4
+SAF68,Salvatierra,Lungfish eel,Lepidosiren paradoxa,Mandible,2,1136,10,203/111,220-230,14,3.1,42.0,6.6,-17.9,-17.9,-17.9,-17.9,0.0,15.0,1.9,6.4,6.4,6.4,6.4,0.0,3.2,3,4
+SAF69,Salvatierra,Deer,Mazama sp.,Vertebrae,2,1136,10,203/112,230-240,44,6.6,44.2,8.3,-20.9,-,-20.8,-20.9,0.0,15.8,2.3,7.4,-,7.2,7.3,0.1,3.2,2,4
+SAF70,Salvatierra,Agouti,Dasyprocta sp.,-,3,99,9,209/98,-,5,-,37.2,7.2,-17.9,-17.8,-17.9,-17.9,0.1,13.1,2.0,7.6,7.7,7.6,7.6,0.0,3.3,3,4
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SAF11,Salvatierra,Swamp eel,Synbranchus spp.,Dentary,3,99,9,202/97,160-170,1,0.2,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,0,-
+SAF12,Salvatierra,Swamp eel,Synbranchus spp.,Dentary,3,99,9,208/98,190-200,10,1.4,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,0,-
+SAF45,Salvatierra,Capybara,H. hydrochaeris,Mandible,3,99,9,208/98,180-190,62,5.9,7.4,1.7,-,-,-,-16.0,2.6,2.1,0.1,-,-,-,4.4,0.3,4.0,3,4
+SAF52,Salvatierra,Lungfish eel,Lepidosiren paradoxa,Tooth plate,3,99,9,206/100,All Layer,22,3.3,46.3,8.6,-18.0,-18.0,-17.9,-20.7,4.8,13.4,2.6,6.2,6.1,6.2,3.6,4.5,4.0,3,4
