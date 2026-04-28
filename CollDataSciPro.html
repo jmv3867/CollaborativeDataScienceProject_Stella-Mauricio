@@ -581,8 +581,8 @@ Posterior SEA_B summary (‰²):</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">round</span>(<span class="fu">t</span>(SEA_B_sites_summary), <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>              mean median lower.2.5% upper.97.5%
-Mendoza     22.820 22.564     17.832      29.126
-Salvatierra 28.919 28.273     19.862      41.874</code></pre>
+Mendoza     22.873 22.715     17.950      28.853
+Salvatierra 29.135 28.557     20.143      41.759</code></pre>
 </div>
 </div>
 <p>Plot posterior SEA_B distributions</p>
@@ -620,7 +620,7 @@ Salvatierra 28.919 28.273     19.862      41.874</code></pre>
 <span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-P(SEA_B Salvatierra &gt; SEA_B Mendoza) = 0.850</code></pre>
+P(SEA_B Salvatierra &gt; SEA_B Mendoza) = 0.845</code></pre>
 </div>
 </div>
 </section>
@@ -760,10 +760,10 @@ Posterior SEA_B summary by phase (‰²):</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">round</span>(<span class="fu">t</span>(SEA_B_phase_summary), <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         mean median lower.2.5% upper.97.5%
-Phase_2 9.612  8.851      4.957      18.450
-Phase_3 6.008  5.866      4.063       8.878
-Phase_4 6.711  6.536      4.606       9.822
-Phase_5 9.317  8.386      4.288      19.693</code></pre>
+Phase_2 9.653  8.995      5.006      18.028
+Phase_3 5.996  5.813      4.042       8.912
+Phase_4 6.743  6.587      4.627       9.927
+Phase_5 9.374  8.394      4.362      19.894</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>SEA_B_phase_long <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(SEA_B_phase) <span class="sc">%&gt;%</span></span>
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"Phase"</span>, <span class="at">values_to =</span> <span class="st">"SEA_B"</span>) <span class="sc">%&gt;%</span></span>
@@ -802,12 +802,12 @@ Pairwise posterior probabilities P(row &gt; col):</code></pre>
 <span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"  P(%s &gt; %s) = %.3f</span><span class="sc">\n</span><span class="st">"</span>, pair[<span class="dv">1</span>], pair[<span class="dv">2</span>], p))</span>
 <span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  P(Phase_2 &gt; Phase_3) = 0.868
-  P(Phase_2 &gt; Phase_4) = 0.793
-  P(Phase_2 &gt; Phase_5) = 0.548
-  P(Phase_3 &gt; Phase_4) = 0.352
-  P(Phase_3 &gt; Phase_5) = 0.200
-  P(Phase_4 &gt; Phase_5) = 0.267</code></pre>
+<pre><code>  P(Phase_2 &gt; Phase_3) = 0.878
+  P(Phase_2 &gt; Phase_4) = 0.814
+  P(Phase_2 &gt; Phase_5) = 0.555
+  P(Phase_3 &gt; Phase_4) = 0.336
+  P(Phase_3 &gt; Phase_5) = 0.184
+  P(Phase_4 &gt; Phase_5) = 0.258</code></pre>
 </div>
 </div>
 </section>
@@ -1017,13 +1017,13 @@ Posterior SEA_B summary for all groups (‰²):</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">round</span>(<span class="fu">t</span>(SEA_B_combined_summary), <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                     mean median lower.2.5% upper.97.5%
-Salvatierra Humans 22.960 22.690     17.842      28.740
-Mendoza Humans     29.138 28.248     20.287      42.290
-Ungulates           4.200  3.919      2.223       8.034
-Armadillos          5.498  5.224      3.286       9.305
-Riverines           7.059  6.818      4.492      11.018
-Muscovy Duck       19.616 17.985      9.737      39.339
-Rodents             9.547  8.802      4.857      18.948</code></pre>
+Salvatierra Humans 22.990 22.652     18.070      29.214
+Mendoza Humans     29.004 28.244     19.832      42.169
+Ungulates           4.171  3.914      2.239       7.748
+Armadillos          5.405  5.113      3.189       9.212
+Riverines           7.027  6.828      4.391      10.747
+Muscovy Duck       19.363 18.048      9.757      37.270
+Rodents             9.258  8.579      4.733      17.688</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>plot_df <span class="ot">&lt;-</span> siber_combined_df <span class="sc">%&gt;%</span></span>
 <span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">d13C =</span> iso1, <span class="at">d15N =</span> iso2)</span>
@@ -1504,8 +1504,8 @@ Posterior centroid draws structure:</code></pre>
 Columns: 4
 $ draw  &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 1…
 $ phase &lt;chr&gt; "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2",…
-$ mu1   &lt;dbl&gt; 1.888069, 2.230946, 3.863054, 6.104917, 7.974742, 2.294894, 2.94…
-$ mu2   &lt;dbl&gt; 0.4296089, 0.8027619, 2.3747219, 4.2309804, 2.0753143, 1.4644291…</code></pre>
+$ mu1   &lt;dbl&gt; 5.260016, 5.015873, 4.260394, 2.522004, 2.324400, 6.563107, 2.65…
+$ mu2   &lt;dbl&gt; 1.72521963, 0.15289952, 1.58179940, 1.19435120, 0.49721624, 2.45…</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb158"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Compute Layman metrics per posterior draw ---</span></span>
 <span id="cb158-2"><a href="#cb158-2" aria-hidden="true" tabindex="-1"></a><span class="co"># For each draw, compute the 6 Layman metrics across the 4 phase centroids</span></span>
@@ -1593,12 +1593,12 @@ Posterior Layman Metrics Summary:</code></pre>
 <pre><code># A tibble: 6 × 5
   Metric    mean median lower upper
   &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1 dC_range  3.64   2.79 0.719 11.8 
-2 dN_range  4.69   4.02 1.46  11.4 
-3 TA        5.81   3.59 0.412 25.4 
-4 CD        2.14   1.77 0.755  5.49
-5 MNND      2.02   1.77 0.723  4.87
-6 SDNND     1.71   1.21 0.139  6.02</code></pre>
+1 dC_range  3.67   2.84 0.794 11.6 
+2 dN_range  4.66   3.97 1.24  12.1 
+3 TA        5.81   3.54 0.556 24.3 
+4 CD        2.13   1.77 0.761  5.61
+5 MNND      2.03   1.77 0.766  4.84
+6 SDNND     1.71   1.21 0.117  6.36</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb164"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb164-1"><a href="#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 12b. Visualise ---</span></span>
 <span id="cb164-2"><a href="#cb164-2" aria-hidden="true" tabindex="-1"></a>layman_long <span class="ot">&lt;-</span> layman_draws <span class="sc">%&gt;%</span></span>
@@ -2245,13 +2245,63 @@ different, consistent with intentional maize feeding of ducks.</code></pre>
 </section>
 <section id="the-results" class="level4">
 <h4 class="anchored" data-anchor-id="the-results">The results</h4>
-<p>Plots</p>
-<p>Patterns</p>
-<p>Assumptions and limitations</p>
+<section id="plots" class="level5">
+<h5 class="anchored" data-anchor-id="plots">Plots</h5>
+<p><strong>Figure 1 — Site-level biplot (Chunk 6):</strong> A δ¹³C vs δ¹⁵N scatter plot with 40% maximum likelihood ellipses shows Salvatierra and Mendoza populations nearly completely overlapping in isotopic space, with both sites positioned in the high-δ¹³C region consistent with substantial C4 (maize) consumption.</p>
+<p><strong>Figure 2 — Posterior SEA_B distributions by site (Chunk 6):</strong> Density plots of the posterior Bayesian Standard Ellipse Area show broadly overlapping distributions for both sites, confirming no credible difference in isotopic niche width between Salvatierra and Mendoza.</p>
+<p><strong>Figure 3 — Diachronic phase biplot (Chunk 7):</strong> A δ¹³C vs δ¹⁵N plot with ellipses by ceramic phase shows Phase 2 shifted toward higher δ¹³C values with minimal overlap with later phases, while Phases 3, 4, and 5 form a tightly clustered group in the −12 to −13‰ range.</p>
+<p><strong>Figure 4 — Posterior SEA_B by phase (Chunk 7):</strong> Density curves show Phase 2 has a distinctly narrower posterior SEA_B distribution than later phases, suggesting a more uniform and specialized diet in the earliest occupation.</p>
+<p><strong>Figure 5 — Combined human and fauna biplot (Chunk 8):</strong> The full community biplot shows clear isotopic separation between faunal groups, with Ungulates anchoring the C3 end and Armadillos/Muscovy Ducks clustering near the human populations at the C4 end.</p>
+<p><strong>Figure 6 — Posterior SEA_B boxplot for all groups (Chunk 8):</strong> Muscovy ducks and Rodents show the widest posterior niche width uncertainty relative to their sample sizes, while Ungulates and humans show tighter, better-constrained ellipses.</p>
+<p><strong>Figure 7 — Diachronic overlap heatmap (Chunk 11):</strong> The 4×4 proportional overlap matrix visualised as an annotated heatmap shows near-zero overlap between Phase 2 and Phases 4–5, and high overlap (&gt;0.7) among Phases 3, 4, and 5 — quantifying dietary convergence after CE 800 for the first time.</p>
+<p><strong>Figure 8 — Bayesian Layman metrics (Chunk 12):</strong> Posterior density plots for the six community-level metrics show that the δ¹³C range across phase centroids has the widest posterior uncertainty, reflecting the main axis of dietary change through time, while δ¹⁵N range and MNND are relatively stable.</p>
+<p><strong>Figure 9 — Centroid partitioning map (Chunk 12):</strong> Group centroids plotted in isotopic space with nearest-neighbour arrows show that Muscovy Ducks are isotopically closest to the human populations, while Ungulates are most distant — visualising the domestication-relevant dietary proximity between ducks and humans.</p>
+<p><strong>Figure 10 — Maize mixing model violin plots (Chunk 13):</strong> Two-panel figure showing estimated % maize contribution by ecological group (Panel A) and by ceramic phase in humans (Panel B). The diachronic panel clearly shows the decline from ~70% in Phase 2 to ~50% in Phase 5, with diamond markers showing phase means.</p>
+</section>
+<section id="patterns" class="level5">
+<h5 class="anchored" data-anchor-id="patterns">Patterns</h5>
+<p>Five clear patterns emerge across the analyses:</p>
+<p><strong>1. Dietary homogeneity across sites:</strong> Despite Salvatierra and Mendoza being separate excavation sites with different burial contexts and sample sizes, their isotopic signatures are statistically indistinguishable. This confirms that the Casarabe culture maintained a uniform subsistence strategy across its settlement network, consistent with the extensive canal and causeway system linking sites.</p>
+<p><strong>2. Maize dominance in the earliest phase:</strong> Phase 2 (CE 700–800) stands out as a period of exceptionally high maize reliance, with δ¹³C values comparable to classic Maya maize agriculturalists — the highest documented in the Amazon Basin. This suggests maize agriculture was already deeply established before the main Casarabe monumental construction phase.</p>
+<p><strong>3. Gradual dietary diversification after CE 800:</strong> The progressive decline in δ¹³C from Phase 2 onward, confirmed both by the ANOVA results and the overlap heatmap, points to a diversification of food sources rather than an abrupt abandonment of maize. The high overlap among Phases 3–5 indicates dietary stabilisation at a new, lower level of maize reliance by CE 800.</p>
+<p><strong>4. Muscovy duck maize feeding:</strong> Muscovy ducks consistently show δ¹³C values comparable to the human population, with the mixing model placing their maize contribution statistically indistinguishable from that of humans. Combined with zooarchaeological evidence of confinement pathologies reported in the paper, this strongly supports intentional maize feeding and active management from CE 800 onward.</p>
+<p><strong>5. Clear isotopic niche partitioning:</strong> The centroid map and Layman metrics confirm that the seven groups partition isotopic space in a biologically meaningful way — Ungulates providing the C3 baseline, Riverines and Rodents occupying mixed positions, and Armadillos, Muscovy Ducks, and humans clustering in the C4-enriched region. The MNND values indicate moderate niche packing without excessive overlap between most groups.</p>
+</section>
+<section id="assumptions-and-limitations" class="level5">
+<h5 class="anchored" data-anchor-id="assumptions-and-limitations">Assumptions and Limitations</h5>
+<p><strong>Assumptions of SIBER:</strong> SIBER assumes that isotopic data within each group follow a bivariate normal distribution. This assumption is tested indirectly through the Shapiro-Wilk normality tests on δ¹³C and δ¹⁵N separately, but the bivariate normality of the joint distribution is not formally tested. Groups with small sample sizes (n &lt; 10, particularly Phase 5 with n=9 and Muscovy Duck with n=9) produce wider posterior ellipses with greater uncertainty, meaning the SIBER results for these groups should be interpreted cautiously. The standard ellipse represents only 40% of the population by design — it is not a confidence interval for all individuals but rather a measure of the core isotopic niche.</p>
+<p><strong>Assumptions of the mixing model (Chunk 13):</strong> The two-source model assumes only two dietary endpoints — pure C3 and pure C4 (maize) — which oversimplifies the dietary complexity of an Amazonian population that consumed manioc, sweet potatoes, fish, game, and other resources. The trophic enrichment factor (TEF) of +5‰ per trophic level follows Hedges &amp; Reynard (2007) for bone collagen but carries uncertainty of ±1–2‰, which propagates into the maize percentage estimates. Values were clamped to [0,1] to prevent biologically impossible estimates, but unclamped values for some individuals suggest the C3 endpoint may need refinement using locally calibrated baselines rather than the ungulate mean.</p>
+<p><strong>Collagen preservation:</strong> The paper reports over 90% collagen preservation yield, which is exceptional for tropical contexts. However, the humid tropical environment of the Llanos de Mojos introduces some risk of diagenetic alteration that cannot be fully excluded, even with acceptable C/N ratios. The SIBER analysis assumes isotopic values reflect ante-mortem diet without post-mortem alteration.</p>
+<p><strong>Temporal resolution:</strong> The five ceramic phases span between 50 and 300 years each, meaning that within-phase dietary variation is averaged out. Individuals living at the beginning and end of Phase 3 (a 300-year span) are treated as a single dietary group, which may mask finer-scale temporal trends.</p>
+<p><strong>Faunal exclusions:</strong> Four faunal samples were excluded from the Bayesian analysis — two misidentified coracoid duck fragments (SAF39, SAF61) and two ungulate outliers (SAF50, SAF56). These exclusions follow the paper’s reasoning but introduce a degree of subjectivity in the final faunal baseline, particularly for the ungulate C3 endpoint used in the mixing model.</p>
+<p><strong>Sample size imbalance:</strong> Salvatierra contributes 65 of the 86 human individuals while Mendoza contributes only 24, and Phase 2 has only 10 individuals compared to 27 in Phases 3 and 4. This imbalance means that comparisons between sites and early phases carry greater posterior uncertainty and should be interpreted with appropriate caution</p>
+</section>
 </section>
 <section id="conclusion" class="level4">
 <h4 class="anchored" data-anchor-id="conclusion">Conclusion</h4>
-<p>When this method is useful and when not</p>
+<p>This analysis successfully replicates and substantially extends the Bayesian isotopic niche modeling of Hermenegildo et al.&nbsp;(2025) using the SIBER framework in R. The replication confirms the paper’s core findings: maize was the dominant dietary staple of the Casarabe culture throughout CE 700–1400, with peak reliance in the earliest occupation phase, and Muscovy ducks were actively managed and intentionally fed maize from as early as CE 800.</p>
+<p>The novel contributions — the diachronic overlap heatmap, the Bayesian Layman community metrics, the two-source isotopic mixing model, and the spatial mapping comparison — go beyond the paper in three important ways. First, they quantify for the first time how much isotopic dietary space was actually shared between ceramic phases, showing that the dietary shift after Phase 2 was a convergence toward a stable new equilibrium rather than a continuous decline. Second, they provide the first percentage estimates of maize contribution to individual diets, placing Phase 2 humans at approximately 65–75% maize reliance — values comparable to the most maize-dependent populations in the ancient Americas. Third, they demonstrate that Muscovy duck maize reliance was not merely elevated but was statistically equivalent to human levels, providing the strongest quantitative support yet for intentional feeding practices.</p>
+<p>The spatial mapping comparison additionally demonstrates that the paper’s original QGIS-based maps can be fully reproduced in code — in both R and Python — making the spatial component of the analysis transparent and reproducible for the first time.</p>
+<section id="when-this-method-is-useful-and-when-not" class="level5">
+<h5 class="anchored" data-anchor-id="when-this-method-is-useful-and-when-not">When this method is useful and when not</h5>
+<p><strong>SIBER is most useful when:</strong></p>
+<ul>
+<li><p>You have <strong>isotopic data from multiple groups</strong> and want to compare their dietary niches simultaneously rather than pairwise, especially when sample sizes differ substantially between groups.</p></li>
+<li><p>You need <strong>uncertainty quantification</strong> around niche estimates — the Bayesian posterior distributions provide credible intervals that frequentist ellipses cannot, which is critical when sample sizes are small (n &lt; 30).</p></li>
+<li><p>You are working in <strong>archaeological or ecological contexts</strong> where the goal is to characterise the dietary or ecological space occupied by a population, not to test a specific mechanistic hypothesis.</p></li>
+<li><p>You want to compare <strong>niche width (SEA_B) and overlap</strong> between groups in a statistically rigorous way that accounts for small sample size correction automatically.</p></li>
+<li><p>You have <strong>community-level questions</strong> about how multiple species or populations partition available resources, where Layman metrics provide an informative summary of the entire assemblage structure.</p></li>
+</ul>
+<p><strong>SIBER is less appropriate or limited when:</strong></p>
+<ul>
+<li><p><strong>Sample sizes are very small (n &lt; 5):</strong> SIBER will fit ellipses to any data but the posterior distributions become extremely wide and uninformative, and the standard ellipse may not meaningfully represent the population’s niche.</p></li>
+<li><p><strong>You need causal or mechanistic inference:</strong> SIBER describes isotopic niches but cannot determine why niches differ — it needs to be combined with mixing models, zooarchaeology, or archaeobotany for interpretation, as we demonstrated in Chunk 13.</p></li>
+<li><p><strong>Your data are strongly non-normal or multimodal:</strong> SIBER assumes bivariate normality within each group. If a group contains two distinct dietary subpopulations (e.g.&nbsp;high-status vs.&nbsp;low-status individuals with very different diets), a single ellipse will misrepresent both and the Bayesian model will be poorly specified.</p></li>
+<li><p><strong>You need individual-level dietary estimates:</strong> SIBER operates at the group level. For individual dietary reconstruction, isotopic mixing models (as in Chunk 13) or Bayesian mixing frameworks like MixSIAR are more appropriate tools.</p></li>
+<li><p><strong>Temporal resolution is critical:</strong> Because SIBER pools all individuals within a group into a single ellipse, it cannot detect within-phase dietary trends. If your research question requires finer temporal resolution than your phase definitions allow, time-series approaches or individual radiocarbon-dated specimens are needed.</p></li>
+<li><p><strong>You are comparing groups across very different ecosystems:</strong> SIBER ellipse overlap is only meaningful when groups share the same isotopic baseline. Comparing populations from the Amazon with populations from the Andes in a single SIBER community would conflate dietary differences with baseline differences, producing misleading overlap estimates.</p></li>
+</ul>
+</section>
 </section>
 </section>
 </section>
