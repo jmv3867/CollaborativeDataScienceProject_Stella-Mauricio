@@ -1,0 +1,157 @@
+---
+title: "Collaborative Project K-means and Hclusts"
+format: html
+editor: visual
+---
+
+## Download Packages
+
+```{r}
+#| echo: false
+library(tidyverse)
+library(readxl)
+library(cluster)
+library(factoextra)
+```
+
+You can add options to executable code like this
+
+```{r}
+d <- read_excel("41562_2024_2070_MOESM4_ESM.xlsx")
+```
+
+**Look at the dataset**
+
+```{r}
+glimpse(d)
+skimr::skim(d)
+```
+
+**Select numeric variables only.** Clustering methods like K-means etc. need numeric variables
+
+```{r}
+cluster_d <- d |>
+  select(where(is.numeric)) |>
+  drop_na()
+```
+
+**Scale the data**
+
+```{r}
+d_scaled <- scale(cluster_d)
+```
+
+Scaling puts all variables on the same scale.
+
+This is important because variables with large values could otherwise dominate the clustering.
+
+For example, a variable measured in thousands would have more influence than a variable measured from 0 to 1.
+
+**Choose the number of clusters**
+
+```{r}
+fviz_nbclust(d_scaled, kmeans, method = "wss")
+fviz_nbclust(d_scaled, kmeans, method = "silhouette")
+```
+
+The WSS elbow plot looks for the point where adding more clusters stops improving the model much.
+
+The silhouette plot shows how well-separated the clusters are.
+
+**Run K-means clustering**
+
+```{r}
+set.seed(123)
+kmeans_result <- kmeans(d_scaled, centers = 3, nstart = 25)
+```
+
+centers = 3 means I am asking R to find 3 clusters.
+
+nstart = 25 tells R to try 25 different starting points and keep the best result
+
+set.seed(123) makes the result reproducible.
+
+**View the K-means results**
+
+```{r}
+kmeans_result
+kmeans_result$cluster #tells you which cluster each row belongs to
+```
+
+**Visualizing K-means clusters**
+
+```{r}
+#shows how the observations are grouped into clusters
+fviz_cluster(kmeans_result, data = d_scaled)
+```
+
+**Add K-means clusters back to the data**
+
+```{r}
+data_kmeans <- cluster_d |>
+  mutate(kmeans_cluster = as.factor(kmeans_result$cluster))
+```
+
+This creates a new dataset with the cluster number added as a new column, so we can compare the original variables across clusters.
+
+**Create a distance matrix for hierarchical clustering**
+
+```{r}
+dist_matrix <- dist(d_scaled)
+```
+
+Hierarchical clustering needs to know how far apart each observation is from every other observation, this line calculates those distances.
+
+**Run hierarchical clustering**
+
+```{r}
+#ward.D2 is to create compact, balanced clusters
+hclust_result <- hclust(dist_matrix, method = "ward.D2")
+```
+
+**Plot the dendrogram**
+
+```{r}
+plot(hclust_result, labels = FALSE, main = "Hierarchical Clustering Dendrogram")
+rect.hclust(hclust_result, k = 3, border = 2:4) #draws boxes around 3 clusters
+```
+
+**Cut the trees into clusters**
+
+```{r}
+hclust_clusters <- cutree(hclust_result, k = 3) #each row is assigned to one hierarchical cluster
+```
+
+**Add hierarchical clusters back to the data**
+
+```{r}
+data_hclust <- cluster_d |>
+  mutate(hclust_cluster = as.factor(hclust_clusters))
+```
+
+**Compare K-means and hierarchical clustering**
+
+```{r}
+table(
+  Kmeans = data_kmeans$kmeans_cluster,
+  Hclust = data_hclust$hclust_cluster
+)
+```
+
+The table shows whether the two methods grouped observations similarly.
+
+If many observations fall into the same combinations, the methods are somewhat agreeing.
+
+**Summarize cluster characteristics**
+
+```{r}
+#calculates the average value of each variable within each K-means cluster
+data_kmeans |>
+  group_by(kmeans_cluster) |>
+  summarise(across(everything(), mean, na.rm = TRUE))
+
+#does the same thing for hierarchical clusters
+data_hclust |>
+  group_by(hclust_cluster) %>%
+  summarise(across(everything(), mean, na.rm = TRUE))
+```
