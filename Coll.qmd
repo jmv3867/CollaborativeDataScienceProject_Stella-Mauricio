@@ -62,10 +62,10 @@ The silhouette plot shows how well-separated the clusters are.
 
 ```{r}
 set.seed(123)
-kmeans_result <- kmeans(d_scaled, centers = 3, nstart = 25)
+kmeans_result <- kmeans(d_scaled, centers = 4, nstart = 25)
 ```
 
-centers = 3 means I am asking R to find 3 clusters.
+centers = 4 means I am asking R to find 4 clusters.
 
 nstart = 25 tells R to try 25 different starting points and keep the best result
 
@@ -113,13 +113,13 @@ hclust_result <- hclust(dist_matrix, method = "ward.D2")
 
 ```{r}
 plot(hclust_result, labels = FALSE, main = "Hierarchical Clustering Dendrogram")
-rect.hclust(hclust_result, k = 3, border = 2:4) #draws boxes around 3 clusters
+rect.hclust(hclust_result, k = 4, border = 2:4) #draws boxes around 3 clusters
 ```
 
 **Cut the trees into clusters**
 
 ```{r}
-hclust_clusters <- cutree(hclust_result, k = 3) #each row is assigned to one hierarchical cluster
+hclust_clusters <- cutree(hclust_result, k = 4) #each row is assigned to one hierarchical cluster
 ```
 
 **Add hierarchical clusters back to the data**
