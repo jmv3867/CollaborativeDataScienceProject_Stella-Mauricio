@@ -17,7 +17,7 @@ This project is implemented by Stella and Mauricio with the intention to explore
 
 #### About the dataset
 
-![This article is an interesting case of archaeological scholarship that combines the introduction of new data in agriculture and animal domestication to sustain the importance of the Amazonian Anthropogenic Landscapes within the Human and Ecological history of the Americas. The data presented in this article are new measures of stable carbon and nitrogen Isotopes from 86 human and 68 animals remains dated around \~CE 700 and 1400 from the Llanos de Mojos, Bolivia. This data sustain the presence of maize agriculture and evidences of muscovy duscks (Cairina moschata) domestication with early dates from CE 800. ](images/clipboard-1550559432.png)
+![This article is an interesting case of archaeological scholarship that combines the introduction of new data in agriculture and animal domestication to sustain the importance of the Amazonian Anthropogenic Landscapes within the Human and Ecological history of the Americas. The data presented in this article are new measures of stable carbon and nitrogen Isotopes from 86 human and 68 animals remains dated around \~CE 700 and 1400 from the Llanos de Mojos, Bolivia. This data sustain the presence of maize agriculture and evidences of muscovy duscks (Cairina moschata) domestication with early dates from CE 800.](images/clipboard-1550559432.png)
 
 ![](images/clipboard-1611612522.png)
 

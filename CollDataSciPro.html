@@ -589,8 +589,8 @@ Posterior SEA_B summary (‰²):</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">round</span>(<span class="fu">t</span>(SEA_B_sites_summary), <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>              mean median lower.2.5% upper.97.5%
-Mendoza     22.960 22.778     18.049      29.215
-Salvatierra 28.762 28.081     19.851      40.984</code></pre>
+Mendoza     22.929 22.723     18.244      28.888
+Salvatierra 28.949 28.081     19.745      42.543</code></pre>
 </div>
 </div>
 <p>Plot posterior SEA_B distributions</p>
@@ -628,7 +628,7 @@ Salvatierra 28.762 28.081     19.851      40.984</code></pre>
 <span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-P(SEA_B Salvatierra &gt; SEA_B Mendoza) = 0.836</code></pre>
+P(SEA_B Salvatierra &gt; SEA_B Mendoza) = 0.839</code></pre>
 </div>
 </div>
 </section>
@@ -768,10 +768,10 @@ Posterior SEA_B summary by phase (‰²):</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">round</span>(<span class="fu">t</span>(SEA_B_phase_summary), <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         mean median lower.2.5% upper.97.5%
-Phase_2 9.673  8.953      5.038      18.029
-Phase_3 5.939  5.803      4.013       8.790
-Phase_4 6.695  6.522      4.587       9.705
-Phase_5 9.267  8.277      4.301      20.036</code></pre>
+Phase_2 9.608  8.917      5.062      18.829
+Phase_3 5.963  5.831      4.019       8.821
+Phase_4 6.721  6.513      4.592       9.698
+Phase_5 9.409  8.439      4.300      20.133</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>SEA_B_phase_long <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(SEA_B_phase) <span class="sc">%&gt;%</span></span>
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"Phase"</span>, <span class="at">values_to =</span> <span class="st">"SEA_B"</span>) <span class="sc">%&gt;%</span></span>
@@ -810,12 +810,12 @@ Pairwise posterior probabilities P(row &gt; col):</code></pre>
 <span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"  P(%s &gt; %s) = %.3f</span><span class="sc">\n</span><span class="st">"</span>, pair[<span class="dv">1</span>], pair[<span class="dv">2</span>], p))</span>
 <span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  P(Phase_2 &gt; Phase_3) = 0.881
-  P(Phase_2 &gt; Phase_4) = 0.802
-  P(Phase_2 &gt; Phase_5) = 0.562
-  P(Phase_3 &gt; Phase_4) = 0.343
+<pre><code>  P(Phase_2 &gt; Phase_3) = 0.884
+  P(Phase_2 &gt; Phase_4) = 0.807
+  P(Phase_2 &gt; Phase_5) = 0.539
+  P(Phase_3 &gt; Phase_4) = 0.328
   P(Phase_3 &gt; Phase_5) = 0.184
-  P(Phase_4 &gt; Phase_5) = 0.301</code></pre>
+  P(Phase_4 &gt; Phase_5) = 0.276</code></pre>
 </div>
 </div>
 </section>
@@ -1025,13 +1025,13 @@ Posterior SEA_B summary for all groups (‰²):</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">round</span>(<span class="fu">t</span>(SEA_B_combined_summary), <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                     mean median lower.2.5% upper.97.5%
-Salvatierra Humans 22.972 22.782     18.014      29.227
-Mendoza Humans     29.088 28.369     19.972      42.847
-Ungulates           4.153  3.843      2.237       7.760
-Armadillos          5.474  5.140      3.188       9.453
-Riverines           7.045  6.817      4.537      10.721
-Muscovy Duck       19.432 18.085      9.875      37.551
-Rodents             9.330  8.599      4.839      18.420</code></pre>
+Salvatierra Humans 22.879 22.650     18.304      28.919
+Mendoza Humans     28.893 28.163     20.051      41.401
+Ungulates           4.196  3.941      2.225       7.821
+Armadillos          5.450  5.169      3.133       9.339
+Riverines           7.022  6.781      4.572      10.784
+Muscovy Duck       19.325 17.720      9.668      38.296
+Rodents             9.415  8.617      4.782      19.046</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>plot_df <span class="ot">&lt;-</span> siber_combined_df <span class="sc">%&gt;%</span></span>
 <span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">d13C =</span> iso1, <span class="at">d15N =</span> iso2)</span>
@@ -1512,8 +1512,8 @@ Posterior centroid draws structure:</code></pre>
 Columns: 4
 $ draw  &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 1…
 $ phase &lt;chr&gt; "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2",…
-$ mu1   &lt;dbl&gt; 1.937532, 7.696923, 4.226281, 2.017252, 1.930712, 1.979018, 3.93…
-$ mu2   &lt;dbl&gt; 0.96980325, 3.51747348, 2.00134783, 0.36311704, 0.38974790, 1.00…</code></pre>
+$ mu1   &lt;dbl&gt; 9.984678, 3.792470, 3.848948, 2.462176, 6.822384, 2.429586, 2.18…
+$ mu2   &lt;dbl&gt; -0.51466062, 2.21631792, 1.42723296, 1.12782398, -0.09410859, 3.…</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb158"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Compute Layman metrics per posterior draw ---</span></span>
 <span id="cb158-2"><a href="#cb158-2" aria-hidden="true" tabindex="-1"></a><span class="co"># For each draw, compute the 6 Layman metrics across the 4 phase centroids</span></span>
@@ -1601,12 +1601,12 @@ Posterior Layman Metrics Summary:</code></pre>
 <pre><code># A tibble: 6 × 5
   Metric    mean median lower upper
   &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1 dC_range  3.74   2.87 0.726 12.6 
-2 dN_range  4.78   3.97 1.40  13.2 
-3 TA        6.06   3.66 0.466 24.8 
-4 CD        2.18   1.78 0.776  5.95
-5 MNND      2.07   1.79 0.765  5.03
-6 SDNND     1.78   1.23 0.144  6.78</code></pre>
+1 dC_range  3.68   2.84 0.83  11.6 
+2 dN_range  4.70   3.98 1.32  12.4 
+3 TA        6.03   3.61 0.521 26.3 
+4 CD        2.14   1.76 0.771  5.81
+5 MNND      2.04   1.77 0.762  4.87
+6 SDNND     1.72   1.19 0.144  6.64</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb164"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb164-1"><a href="#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---  Visualise ---</span></span>
 <span id="cb164-2"><a href="#cb164-2" aria-hidden="true" tabindex="-1"></a>layman_long <span class="ot">&lt;-</span> layman_draws <span class="sc">%&gt;%</span></span>
@@ -2254,15 +2254,25 @@ different, consistent with intentional maize feeding of ducks.</code></pre>
 <section id="plots" class="level5">
 <h5 class="anchored" data-anchor-id="plots">Plots</h5>
 <p><strong>Figure 1 — Site-level biplot (Chunk 6):</strong> A δ¹³C vs δ¹⁵N scatter plot with 40% maximum likelihood ellipses shows Salvatierra and Mendoza populations nearly completely overlapping in isotopic space, with both sites positioned in the high-δ¹³C region consistent with substantial C4 (maize) consumption.</p>
+<p><img src="CollDataSciPro_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid"></p>
 <p><strong>Figure 2 — Posterior SEA_B distributions by site (Chunk 6):</strong> Density plots of the posterior Bayesian Standard Ellipse Area show broadly overlapping distributions for both sites, confirming no credible difference in isotopic niche width between Salvatierra and Mendoza.</p>
+<p><img src="CollDataSciPro_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid"></p>
 <p><strong>Figure 3 — Diachronic phase biplot (Chunk 7):</strong> A δ¹³C vs δ¹⁵N plot with ellipses by ceramic phase shows Phase 2 shifted toward higher δ¹³C values with minimal overlap with later phases, while Phases 3, 4, and 5 form a tightly clustered group in the −12 to −13‰ range.</p>
+<p><img src="CollDataSciPro_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid"></p>
 <p><strong>Figure 4 — Posterior SEA_B by phase (Chunk 7):</strong> Density curves show Phase 2 has a distinctly narrower posterior SEA_B distribution than later phases, suggesting a more uniform and specialized diet in the earliest occupation.</p>
+<p><img src="CollDataSciPro_files/figure-html/unnamed-chunk-13-2.png" class="img-fluid"></p>
 <p><strong>Figure 5 — Combined human and fauna biplot (Chunk 8):</strong> The full community biplot shows clear isotopic separation between faunal groups, with Ungulates anchoring the C3 end and Armadillos/Muscovy Ducks clustering near the human populations at the C4 end.</p>
+<p><img src="CollDataSciPro_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid"></p>
 <p><strong>Figure 6 — Posterior SEA_B boxplot for all groups (Chunk 8):</strong> Muscovy ducks and Rodents show the widest posterior niche width uncertainty relative to their sample sizes, while Ungulates and humans show tighter, better-constrained ellipses.</p>
+<p><img src="CollDataSciPro_files/figure-html/unnamed-chunk-14-2.png" class="img-fluid"></p>
 <p><strong>Figure 7 — Diachronic overlap heatmap (Chunk 11):</strong> The 4×4 proportional overlap matrix visualised as an annotated heatmap shows near-zero overlap between Phase 2 and Phases 4–5, and high overlap (&gt;0.7) among Phases 3, 4, and 5 — quantifying dietary convergence after CE 800 for the first time.</p>
+<p><img src="CollDataSciPro_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid"></p>
 <p><strong>Figure 8 — Bayesian Layman metrics (Chunk 12):</strong> Posterior density plots for the six community-level metrics show that the δ¹³C range across phase centroids has the widest posterior uncertainty, reflecting the main axis of dietary change through time, while δ¹⁵N range and MNND are relatively stable.</p>
+<p><img src="CollDataSciPro_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid"></p>
 <p><strong>Figure 9 — Centroid partitioning map (Chunk 12):</strong> Group centroids plotted in isotopic space with nearest-neighbour arrows show that Muscovy Ducks are isotopically closest to the human populations, while Ungulates are most distant — visualising the domestication-relevant dietary proximity between ducks and humans.</p>
+<p><img src="CollDataSciPro_files/figure-html/unnamed-chunk-19-2.png" class="img-fluid"></p>
 <p><strong>Figure 10 — Maize mixing model violin plots (Chunk 13):</strong> Two-panel figure showing estimated % maize contribution by ecological group (Panel A) and by ceramic phase in humans (Panel B). The diachronic panel clearly shows the decline from ~70% in Phase 2 to ~50% in Phase 5, with diamond markers showing phase means.</p>
+<p><img src="CollDataSciPro_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid"></p>
 </section>
 <section id="patterns" class="level5">
 <h5 class="anchored" data-anchor-id="patterns">Patterns</h5>
